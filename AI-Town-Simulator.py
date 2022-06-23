@@ -167,11 +167,10 @@ World_Dictionary = {world_name: {'Towns': [town_name], 'World Stuff': []}}
 for i in range(random.randint(1, 10)):
     World_Dictionary[world_name]['World Stuff'].append(random.choice(world_stuff))
 
-dialogue = [f'"I like going to the {random.choice(world_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
-            f'"I saw {random.choice(list(People_Dictionary.keys()))} go to the {random.choice(town_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
-            f'"My hobbies are {", ".join(People_Dictionary[random.choice(list(People_Dictionary.keys()))]["Hobbies"])}."']
-
-while True:        
+while True:
+    dialogue = [f'"I like going to the {random.choice(world_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
+                f'"I saw {random.choice(list(People_Dictionary.keys()))} go to the {random.choice(town_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
+                f'"My hobbies are {", ".join(People_Dictionary[random.choice(list(People_Dictionary.keys()))]["Hobbies"])}."']
     person = random.choice(list(People_Dictionary.keys()))
     if random.randint(1, 2) == 1:
         place = random.choice(World_Dictionary[world_name]['World Stuff'])
@@ -179,17 +178,17 @@ while True:
     else:
         place = random.choice(Town_Dictionary[town_name]['Town Stuff'])
         print(f"{person} went to the {place}.")
-    time.sleep(3)
+    time.sleep(2)
     if random.randint(1, 2) == 1:
         person2 = random.choice(list(People_Dictionary.keys()))
         print(f"{person} met {person2}.")
     else:
         print(f"{person} went home.")
-    time.sleep(3)
+    time.sleep(2)
     if random.randint(1, 2) == 1:
         print(f"{person} went to sleep.")
     else:
         print(f"{person} went to work.")
-    time.sleep(3)
-    if random.randint(1, 10) == 1:
+    time.sleep(2)
+    if random.randint(1, 3) == 1:
         print(random.choice(dialogue))

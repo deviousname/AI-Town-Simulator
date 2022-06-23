@@ -20,15 +20,18 @@
 17. It creates a list of dialogue.
 18. It creates a while loop that generates random events and dialogue.
 """
-#bugs/needed changes:
+## Bugs:
 #Children need to have same lastnames as Parents (most of the time) instead of random lastnames.
+
+## Future Plans:
 #Lower the probability of seeing the same dialogue in quick succession.
-#Add more dialogues
+#Add more dialogues.
 #Add interactive console for looking up people and places in the town.
 #Add obituaries and all that entails.
 #Balance new children repopulation with depopulation.
 #Enhance generated story experience.
 #Change how town and world names are generated (they shouldn't always be based on people names).
+
 import random
 import time
 

@@ -20,7 +20,15 @@
 17. It creates a list of dialogue.
 18. It creates a while loop that generates random events and dialogue.
 """
-
+#bugs/needed changes:
+#Children need to have same lastnames as Parents (most of the time) instead of random lastnames.
+#Lower the probability of seeing the same dialogue in quick succession.
+#Add more dialogues
+#Add interactive console for looking up people and places in the town.
+#Add obituaries and all that entails.
+#Balance new children repopulation with depopulation.
+#Enhance generated story experience.
+#Change how town and world names are generated (they shouldn't always be based on people names).
 import random
 import time
 
@@ -184,11 +192,17 @@ World_Dictionary = {world_name: {'Towns': [town_name], 'World Stuff': []}}
 
 for i in range(random.randint(1, 10)):
     World_Dictionary[world_name]['World Stuff'].append(random.choice(world_stuff))
-
-while True:    
+speed_43 = 1
+while True:
+    d_string_1 ='"'+f"Ahhh, hello {world_name}, another day in {town_name}'s paradise." + random.choice(['"',f', I wonder what {random.choice(list(People_Dictionary.keys()))} is up to today?"'])
     dialogue = [f'"I like going to the {random.choice(world_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
                 f'"I saw {random.choice(list(People_Dictionary.keys()))} go to the {random.choice(town_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
-                f'"My hobbies are {", ".join(People_Dictionary[random.choice(list(People_Dictionary.keys()))]["Hobbies"])}."']
+                f'"I heard that they named the city {town_name}."',
+                d_string_1,
+                f'"When I grow up I want to be a {random.choice(jobs)}!"',
+                f'"My hobbies are {", ".join(People_Dictionary[random.choice(list(People_Dictionary.keys()))]["Hobbies"])}."',
+                f'"{lover_1} and {lover_2} sitting in a tree K-I-S-S-I-N-G..."',
+                f"{lover_2} and {lover_1} children are {People_Dictionary[lover_1]['Children']}",]
     
     person = random.choice(list(People_Dictionary.keys()))
     
@@ -199,7 +213,7 @@ while True:
         place = random.choice(Town_Dictionary[town_name]['Town Stuff'])
         print(f"{person} went to the {place}.")
         
-    time.sleep(2)
+    time.sleep(speed_43)
     
     if random.randint(1, 2) == 1:
         person2 = random.choice(list(People_Dictionary.keys()))
@@ -207,14 +221,14 @@ while True:
     else:
         print(f"{person} went home.")
         
-    time.sleep(2)
+    time.sleep(speed_43)
     
     if random.randint(1, 2) == 1:
         print(f"{person} went to sleep.")
     else:
         print(f"{person} went to work.")
         
-    time.sleep(2)
+    time.sleep(speed_43)
     
-    if random.randint(1, 3) == 1:
+    if random.randint(1, 2) == 1:
         print(random.choice(dialogue))

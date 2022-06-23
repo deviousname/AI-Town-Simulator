@@ -168,7 +168,7 @@ for i in range(random.randint(1, 10)):
     World_Dictionary[world_name]['World Stuff'].append(random.choice(world_stuff))
 
 dialogue = [f'"I like going to the {random.choice(world_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
-            f'"Sometimes I go to the {random.choice(town_stuff)} with {random.choice(list(People_Dictionary.keys()))} alone."',
+            f'"I saw {random.choice(list(People_Dictionary.keys()))} go to the {random.choice(town_stuff)} with {random.choice(list(People_Dictionary.keys()))}."',
             f'"My hobbies are {", ".join(People_Dictionary[random.choice(list(People_Dictionary.keys()))]["Hobbies"])}."']
 
 while True:        

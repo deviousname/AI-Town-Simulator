@@ -1,0 +1,45 @@
+import random
+
+class Person:
+    def __init__(self, first_name, last_name, age, gender, occupation, hobbies):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.gender = gender
+        self.occupation = occupation
+        self.hobbies = hobbies
+
+    def greet(self, other_person):
+        print(f"Hi {other_person.first_name}, I'm {self.first_name}.")
+
+    def have_conversation(self, other_person):
+        topics = ["the weather", "politics", "sports", "movies", "books"]
+        print(f"{self.first_name}: Hey, have you heard about {random.choice(topics)} lately?")
+        print(f"{other_person.first_name}: No, I haven't. Tell me more.")
+
+    def work(self):
+        print(f"{self.first_name} is working as a {self.occupation}.")
+
+    def have_fun(self):
+        hobby = random.choice(self.hobbies)
+        print(f"{self.first_name} is enjoying their hobby of {hobby}.")
+
+
+class Town:
+    def __init__(self, name, population):
+        self.name = name
+        self.population = population
+
+    def simulate_day(self):
+        for person in self.population:
+            person.work()
+
+            if person.age < 18:
+                person.have_fun()
+            else:
+                other_person = random.choice(self.population)
+                person.greet(other_person)
+                person.have_conversation(other_person)
+                person.have_fun()
+
+            person.age += 1
